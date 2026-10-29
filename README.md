@@ -9,7 +9,7 @@ An asynchronous, event-driven microservices platform that analyzes PDF resumes u
 The platform is decoupled into three primary services to ensure fault tolerance and scalability:
 
 1. **API Gateway (C#/.NET):** The synchronous entry point. Handles client uploads, validates payloads, saves raw binaries to blob storage, and publishes processing events to the message queue.
-2. **Message Broker (RabbitMQ/AWS SQS):** Orchestrates the asynchronous workload, ensuring no uploaded resumes are lost during traffic spikes or worker node failures.
+2. **Message Broker (RabbitMQ):** Orchestrates the asynchronous workload, ensuring no uploaded resumes are lost during traffic spikes or worker node failures.
 3. **AI Worker Service (Python):** An independent background process that consumes messages from the queue, extracts PDF text, interfaces with the LLM API, and persists the structured analysis to the database.
 
 ## 🚀 Tech Stack
