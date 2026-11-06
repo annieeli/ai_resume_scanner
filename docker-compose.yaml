@@ -1,8 +1,36 @@
 services:
-  api-gateway:
+  api_gateway:
     build: 
-      context: ./api-gateway
+      context: ./api_gateway
     ports:
       - "8080:8080"
     volumes:
       - ./shared_data:/app/uploads
+    environment:
+      Storage__RootPath: /app/uploads
+      RabbitMq__HostName: rabbitmq
+      RabbitMq__QueueName: resume_analysis
+      RabbitMq__UserName: ${RABBITMQ_USER}
+      RabbitMq__Password: ${RABBITMQ_PASSWORD}
+    depends_on:
+      rabbitmq:
+        condition: service_healthy 
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  rabbitmq_data:

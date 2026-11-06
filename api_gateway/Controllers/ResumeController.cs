@@ -1,5 +1,3 @@
-//get from user
-//post/post to handle
 using Microsoft.AspNetCore.Mvc;
 using api_gateway.Services;
 
@@ -16,22 +14,30 @@ public class ResumeController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult UploadResume([FromForm] IFormFile resume)
+    public async Task<IActionResult> UploadResume(
+        [FromForm] IFormFile? resume,
+        [FromForm] string? jobDescription,
+        CancellationToken cancellationToken)
     {
         if(resume == null || resume.Length == 0)
         {
             return BadRequest("No file uploaded.");
         }
 
-        var allowedExtensions = new[] { ".pdf", ".doc", ".docx" };
+        // TODO: strong validation for file type and size
         var fileExtension = Path.GetExtension(resume.FileName).ToLowerInvariant();
-        if(!allowedExtensions.Contains(fileExtension))
+        if(fileExtension != ".pdf")
         {
-            return BadRequest("Invalid file type. Only PDF, DOC, and DOCX are allowed.");
+            return BadRequest("Invalid file type. Only PDF is allowed.");
         }
 
-        var jobId = _resumeService.upload(resume);
+        if (string.IsNullOrWhiteSpace(jobDescription))
+        {
+            return BadRequest("A job description is required.");
+        }
 
-        return Accepted(new{JobId = jobId});
+        var jobId = await _resumeService.UploadAsync(resume, jobDescription, cancellationToken);
+
+        return Accepted(new { JobId = jobId });
     }
 }

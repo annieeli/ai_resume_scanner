@@ -1,6 +1,6 @@
 # AI Resume Analyzer: Distributed Processing Platform
 
-An asynchronous, event-driven microservices platform that analyzes PDF resumes using LLMs. It highlights missing skills and analyzes resume and job posting compatability. Built to handle high-volume document ingestion without blocking the main API thread, mimicking enterprise-scale data pipelines.
+An asynchronous, event-driven platform that analyzes PDF resumes comptability with job postings using LLMs. It highlights missing requirements and skills. Built to handle high-volume document ingestion without blocking the main API thread, mimicking enterprise-scale data pipelines.
 
 ## 🏗 System Architecture
 
