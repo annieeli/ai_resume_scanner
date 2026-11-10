@@ -34,12 +34,13 @@ public class ResumeService : IResumeService
         var jobDescriptionPath = Path.Combine(jobDirectory, "job_description.txt");
         await File.WriteAllTextAsync(jobDescriptionPath, jobDescription, cancellationToken);
 
-
         //store job.json (jobId and status)
         var metadata = new JobMetaData(
             jobId,
-            "Stored"
-        );
+            "Queued",
+            $"{jobId}/resume.pdf",
+            $"{jobId}/job_description.txt"
+        ); 
 
         var jobJsonPath = Path.Combine(jobDirectory, "job.json");
         await WriteMetadataAsync(jobJsonPath, metadata, cancellationToken);
@@ -47,14 +48,10 @@ public class ResumeService : IResumeService
         // publish to rabbitmq
         await _jobPublisher.PublishAsync(jobId, cancellationToken);
 
-        // change the status to "Queued" after publishing to RabbitMQ
-        metadata = metadata with { Status = "Queued" };
-        await WriteMetadataAsync(jobJsonPath, metadata, cancellationToken);
-
         return jobId;
     }
 
-    private record JobMetaData(string JobId, string Status);
+    private record JobMetaData(string JobId, string Status, string ResumePath, string JobDescriptionPath);
 
     private static Task WriteMetadataAsync(string path, JobMetaData metadata, CancellationToken cancellationToken)
     {
