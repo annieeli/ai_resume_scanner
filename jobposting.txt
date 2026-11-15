@@ -1,0 +1,151 @@
+Wonderbrands
+
+Fullstack Software Developer (Open to New Grads) - Hybrid
+
+Location: CA-ON-Etobicoke
+
+Job Family: IT
+
+
+
+All About Wonderbrands
+
+Wonderbrands is a leading Canadian bakery with 140 years of experience in baking packaged breads. We are the makers of Wonder Bread, Country Harvest, D'Italiano, Gadoua, and Casa Mendosa. We have a network of 14 Bakery Manufacturing facilities across Canada.
+
+
+
+Our Next Gen Talent Program Vision and Mission:
+
+Empowering the Next Generation to create future leaders
+
+The Wonderbrands Next Gen Talent Program supports high-potential recent graduates as they develop into the next generation of leaders. At Wonderbrands, we believe in home-grown talent and cultivating an entrepreneurial, innovative culture where curiosity, bold thinking, and continuous improvement are embedded in everything we do.
+
+Come join us on our journey to become the world's great baker!
+
+
+
+What Wonderbrands Offers:
+
+• We believe in Home Grown Talent, accelerated career growth with leadership training - Unleashing Your Potential
+
+• Many of our team members who joined us through similar "new graduate" programs were able to accelerate their career growth and reach high levels in our organization within a few years of joining us
+
+• Competitive compensation, health benefits, and a generous flexible medical/health spending account
+
+• Employer matching pension program
+
+• Tuition reimbursement
+
+• Discount program that covers almost everything under the sun - restaurants, gyms, shopping etc.
+
+
+
+Primary Responsibilities:
+
+• Develop and maintain secure, scalable back-end services and APIs that integrate reliably with internal systems, legacy systems of record, and third-party platforms.
+
+• Build responsive, performant user interfaces using modern web technologies and frameworks.
+
+• Design, manage, and optimize relational databases and data models, including stored procedures, query performance tuning, and structures for history, data syncs, and reporting.
+
+• Enhance and maintain existing applications, and design and build new applications and platform components as business needs arise.
+
+• Implement authentication, authorization, SSO, and role-based and data-level access controls.
+
+• Deploy and support cloud-based solutions, ensuring scalability, reliability, and security.
+
+• Troubleshoot and resolve complex technical issues across the stack.
+
+• Participate in code reviews, providing constructive feedback to maintain high code quality standards.
+
+• Collaborate with cross-functional teams to translate business requirements into technical solutions.
+
+• Contribute to architectural decisions and help define engineering standards across the team.
+
+
+
+About You:
+
+• Completed post-secondary education in Computer Science, Software Engineering, Computer Engineering, Software Development, or a related field.
+
+• Strong problem-solving skills and attention to detail.
+
+• Strong communication and collaboration skills.
+
+• Demonstrated ability to learn new technologies, frameworks, and business domains quickly.
+
+• Solid working knowledge of back-end development with an enterprise language and framework (e.g., C# and .NET/ASP.NET Core).
+
+• Solid working knowledge of web development, including HTML, CSS, JavaScript/TypeScript, and a modern front-end framework (e.g., Angular, React).
+
+• Solid relational database skills, including queries, stored procedures, and optimization (SQL Server and T-SQL preferred).
+
+• Understanding of API design and system integration, including connecting with legacy, enterprise, and third-party systems.
+
+• Understanding of security fundamentals, including authentication, authorization, SSO, role-based access, and secure coding practices (e.g., OWASP).
+
+• Experience building and supporting cloud-based solutions, preferably on Microsoft Azure.
+
+• Experience with source control and CI/CD pipelines (e.g., Git, Azure DevOps) is preferred.
+
+• Familiarity with agile/scrum methodologies is preferred.
+
+
+
+FGF Group Competencies
+
+
+
+Adaptive Intelligence - Team Members respond effectively to challenges by evolving their skills, mindset, and approach.
+
+• Flexibility, Agility, Adaptability: Thrives in dynamic environments by embracing continuous change. Quickly adjusts to new priorities and actively seeks innovative solutions. Uses setbacks as opportunities for growth and applies a relentless focus on improving outcomes. Approaches challenges with a proactive, solutions-driven mindset and openness to feedback.
+
+• Calculated Risk-Taking: Makes strategic decisions by evaluating options and creating contingency plans.
+
+
+
+Collaborative Intelligence - Collaborative intelligence empowers teams to unlock collective strengths and achieve results through synergy and mutual trust.
+
+• Team First and Collaboration: Engages with Team Members and colleagues, builds relationships, and fosters an inclusive, innovative environment.
+
+
+
+Entrepreneurial Intelligence - Equips Team Members to identify opportunities, overcome setbacks, and move ideas to execution effectively.
+
+• Continuous Improvement: Drives innovation and optimizes processes to enhance quality and productivity.
+
+• Customer and Product Focus: Addresses need proactively with accountability and a solution-oriented mindset.
+
+• Fierce Execution: Achieves results with a strategic and hands-on approach, learning from mistakes and building trust.
+
+
+
+Leadership Competencies
+
+
+
+Inspire & Energize Team Members:
+
+• Continually inspires and develops Team Members and promote cross-functional collaboration.
+
+• Supports, shared knowledge and experience with your Team through authentic conversations and development planning
+
+• Communicates clear expectations
+
+• Uses insight and knowledge to influence others
+
+• Understands and acknowledge differences and modifies style to support unleashing potential
+
+• Demonstrates patience and empathy, while listening
+
+
+
+Create Winning Relationships:
+
+• Inspire enthusiasm & commitment by communicating a clear path to success
+
+• Empowers others by delegating and providing support and opportunities for growth
+
+• Identifies, raises and resolves conflict
+
+• Builds trust and models the "Coach Approach"

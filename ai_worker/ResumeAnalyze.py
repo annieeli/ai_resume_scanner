@@ -1,10 +1,11 @@
 # connects to rabbitmq and consumes from queue: resume_analysis
 from pathlib import Path
+from CompatibilityAnalyzer import analyze_compatibility
 import json
 import logging
 import os
 import pika
-from pypdf import PdfReader
+import pdfplumber
 import time
 import uuid
 
@@ -45,36 +46,46 @@ def update_job_status(metadata_path, status):
     temporary_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     temporary_path.replace(metadata_path)
 
-def extract_resume_as_text(job_id, job_dir, resume_path, description_path, metadata_path):
-    job_description = description_path.read_text(encoding="utf-8")
-    if not job_description.strip():
-        raise ValueError("The job description is empty.")
+def extract_resume_as_text(job_id, resume_path):
+    with pdfplumber.open(resume_path) as pdf:
+        resume_text = "\n".join(page.extract_text() or "" for page in pdf.pages).strip()
 
-    reader = PdfReader(str(resume_path))
-    resume_text = "\n".join(page.extract_text() or "" for page in reader.pages).strip()
     if not resume_text:
         raise ValueError("No extractable text found in the resume PDF.")
 
-    extracted_text_path = job_dir / "resume_text.txt"
-    temporary_text_path = job_dir / "resume_text.txt.tmp"
-    temporary_text_path.write_text(resume_text, encoding="utf-8")
-    temporary_text_path.replace(extracted_text_path)
-
     logging.info(
-        "Extracted %d resume characters and read %d job-description characters for job %s",
+        "Extracted %d resume characters for job %s",
         len(resume_text),
-        len(job_description),
         job_id,
     )
-    update_job_status(metadata_path, "TextExtracted")
+    return resume_text
 
 def process_job(job_id):
     metadata_path = None
     try:
+        # retrieves job files
         job_id, job_dir, resume_path, description_path, metadata_path = get_job_files(job_id)
-        update_job_status(metadata_path, "Processing")
+
+        # reads the job description to ensure it's not empty
+        job_description = description_path.read_text(encoding="utf-8")
+        if not job_description.strip():
+            raise ValueError("The job description is empty.")
+
+        # extracts text from the resume PDF
+        update_job_status(metadata_path, "ExtractingText")
+        resume_text = extract_resume_as_text(job_id, resume_path)
+
+        # starts running analysis
+        update_job_status(metadata_path, "Analyzing")
+        result = analyze_compatibility(resume_text, job_description)
         
-        extract_resume_as_text(job_id, job_dir, resume_path, description_path, metadata_path)
+        # saves the result to a temporary file and then renames it to ensure atomicity
+        result_path = job_dir / "result.json"
+        temporary_result_path = job_dir / "result.json.tmp"
+        temporary_result_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
+        temporary_result_path.replace(result_path)
+        update_job_status(metadata_path, "Completed")
+
     except Exception:
         logging.exception("Failed to process job %s", job_id)
         if metadata_path is not None:
