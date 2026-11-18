@@ -26,10 +26,18 @@ This project uses a monorepo structure and Docker Compose for zero-friction setu
 
 **Prerequisites:**
 * Docker and Docker Compose installed
-* An OpenAI API Key
+* An Azure OpenAI deployment and its API key
 
 **Steps:**
 1. Clone the repository:
    ```bash
    git clone [https://github.com/annieeli/resume-scanner-platform.git](https://github.com/annieeli/resume-scanner-platform.git)
    cd resume-scanner-platform
+   ```
+2. Create a root `.env` file (do not commit it) and configure the required credentials:
+   ```dotenv
+   AZURE_OPENAI_API_KEY=your-azure-openai-key
+   RABBITMQ_USER=your-rabbitmq-username
+   RABBITMQ_PASSWORD=your-rabbitmq-password
+   ```
+   The Azure endpoint and deployment name are configured for the worker in `docker-compose.yaml`.

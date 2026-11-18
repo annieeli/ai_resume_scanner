@@ -38,6 +38,9 @@ services:
       - ./shared_data:/app/uploads
     environment:
       STORAGE_ROOT: /app/uploads
+      AZURE_OPENAI_ENDPOINT: https://annieli0428-0578-resource.services.ai.azure.com/openai/v1
+      AZURE_OPENAI_DEPLOYMENT: gpt-5-mini-1
+      AZURE_OPENAI_API_KEY: ${AZURE_OPENAI_API_KEY:?Set AZURE_OPENAI_API_KEY in .env}
       RABBITMQ_HOST: rabbitmq
       RABBITMQ_PORT: 5672
       RABBITMQ_QUEUE: resume_analysis

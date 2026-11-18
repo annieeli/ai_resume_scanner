@@ -1,0 +1,119 @@
+Company: D2L
+
+Role: Software Developer - New Graduate
+
+Schedule: Full-time
+
+Location: Kitchener, Ontario | Remote - Canada | Toronto, Ontario | Winnipeg, Manitoba
+
+
+
+About D2L
+
+D2L is a cloud company that is modernizing education and building the Future of Work. The old models of teaching and learning are in the midst of the largest transformation in history, and D2L is at the heart of that fundamental shift.
+
+
+
+D2L is disrupting the way the world learns, by providing the next generation learning environment and solutions to engage and inspire learners. And most importantly, by giving customers a platform that is easy, flexible, and smart. No other company provides a solution as robust and innovative as D2L.
+
+
+
+D2L has had a singular mission for 25 years and is dedicated to that same mission in the years ahead: to transform the way the world learns - and by doing so, we will help improve human potential globally.
+
+
+
+Every application we receive is personally reviewed by a member of our Talent Acquisition team - yes, a real person looks at your resume! While we use AI tools internally to streamline tasks like meeting notes, summaries, and administrative work, these tools never rank resumes, make hiring decisions, or influence candidate evaluations.
+
+
+
+How will I make an Impact?
+
+At D2L, we are looking for Software Developers who graduated in 2025 to help us advance our goal of using technology to transform teaching and learning around the world. Our software is used daily by millions of people around the world and we need developers who are up to the challenge that this presents. We need these developers to work on a wide range of technologies including, but not limited to: distributed systems, automated test development, user interfaces, mobile and cloud computing. As a developer, you will help make dreams a reality.
+
+
+
+Software Developers at D2L have a passion for technology and code. Beyond code, developers are expected to collaborate closely with others including technical product managers, designers and test developers. Your ideas and perspectives are essential to making sure we are building the right things.
+
+
+
+What you'll bring to the role:
+
+- Ability to analyze and decompose problems into potential technical solutions
+
+- Experience with OO design and proficient coding skills (i.e., C++, C# or Java)
+
+- Acumen with Artificial Intelligence tools
+
+
+
+Education Requirements:
+
+- Bachelor's degree in Computer Science or a related field; completed in 2025
+
+
+
+Work Style & Notes:
+
+- D2L operates in a hybrid work style, with expectation of 3 days per week in office.
+
+- This posting is not for a current vacancy; it is for future candidate consideration.
+
+
+
+Compensation:
+
+The expected base salary range for a new hire in this role is listed below. The annualized base salary offered is determined by each candidate's relevant knowledge, skills, education, training and experience. It is aligned to ensure both internal and external competitiveness using market data for the geographic location and industry. As part of the total compensation at D2L, the role may be eligible for additional benefits including a Wellness Subsidy, Equity Grants, Variable Incentive, and more.
+
+
+
+Base Salary Range: $75,000 - $85,000 CAD
+
+
+
+Don't meet every single requirement? We strongly encourage you to still apply! At D2L, we are committed to creating a diverse and inclusive environment. We encourage your application even if you don't believe you meet every single qualification outlined, because we love to help our people grow and develop!
+
+
+
+Why We're Awesome:
+
+At D2L, we are dedicated to providing you with the tools to do the best work of your life. While some of our perks and benefits may vary depending on location or employment type, we are proud to provide employees with the following through #LifeAtD2L.
+
+
+
+All D2Lers receive:
+
+- Impactful work transforming the way the world learns
+
+- Flexible work arrangements
+
+- Learning and Growth opportunities
+
+- Employee Recognition
+
+- Social Events
+
+- Access to Dog Friendly Office Spaces at our HQ in Kitchener, Winnipeg, Vancouver and Melbourne offices
+
+
+
+Full time, permanent employees are also eligible for:
+
+- Tuition reimbursement of up to $4,000 CAD for continuing education through our SkillsWave Program
+
+- 2 Paid Days off for SkillsWave-related activities like exams or final assignments
+
+- Retirement planning
+
+- 2 Paid Volunteer Days
+
+- Competitive Benefits Package
+
+- Employee Referral Program
+
+- Wellness Reimbursement
+
+
+
+Equal Opportunity Statement:
+
+D2L is committed to a fair and inclusive work environment. We are an equal opportunity employer that hires and attracts talent regardless of age, race, creed, color, religion, national origin, ancestry, marital status, affectional or sexual orientation, gender identity or expression, disability, nationality, sex, status as a protected veteran or any other legally protected grounds and will not discriminate on these bases. We draw on diversity of thought and experience to reflect the rich array of cultures representing our broad customer base and we seek talent with diversity of life experiences and perspectives from around the world. If you have special accessibility requirements that need to be considered during the recruitment process, please let us know by emailing us at careers@d2l.com and a member of our HR team will get back to you. Information received relating to accommodation needs of applicants will be addressed confidentially. D2L maintains a drug-free workplace.

@@ -3,10 +3,11 @@ FROM python:3.12-slim
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.15.0 \
-    && pip install --no-cache-dir -r requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -r requirements.txt
 
 COPY ResumeAnalyze.py .
 COPY CompatibilityAnalyzer.py .
+COPY compatibility_instructions.txt .
 
 CMD ["python", "-u", "ResumeAnalyze.py"]
