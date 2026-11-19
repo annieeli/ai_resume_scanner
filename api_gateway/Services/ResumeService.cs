@@ -45,7 +45,7 @@ public class ResumeService : IResumeService
         var jobJsonPath = Path.Combine(jobDirectory, "job.json");
         await WriteMetadataAsync(jobJsonPath, metadata, cancellationToken);
         
-        // publish to rabbitmq
+        //publish to rabbitmq
         await _jobPublisher.PublishAsync(jobId, cancellationToken);
 
         return jobId;
