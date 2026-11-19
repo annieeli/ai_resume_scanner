@@ -37,7 +37,7 @@ public class ResumeService : IResumeService
         //store job.json (jobId and status)
         var metadata = new JobMetaData(
             jobId,
-            "Queued",
+            JobStatus.Queued.ToString(),
             $"{jobId}/resume.pdf",
             $"{jobId}/job_description.txt"
         ); 
@@ -49,6 +49,31 @@ public class ResumeService : IResumeService
         await _jobPublisher.PublishAsync(jobId, cancellationToken);
 
         return jobId;
+    }
+
+    public async Task<JobStatus?> GetJobStatusAsync(string jobId, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var jobDirectory = Path.Combine(_storageRoot, jobId);
+        var jobJsonPath = Path.Combine(jobDirectory, "job.json");
+
+        if (!File.Exists(jobJsonPath))
+        {
+            return null;
+        }
+
+        var metadataJson = await File.ReadAllTextAsync(jobJsonPath, cancellationToken);
+        var metadata = JsonSerializer.Deserialize<JobMetaData>(metadataJson);
+
+        if (metadata is null ||
+            !Enum.TryParse<JobStatus>(metadata.Status, ignoreCase: true, out var status) ||
+            !Enum.IsDefined(status))
+        {
+            return JobStatus.Unknown;
+        }
+
+        return status;
     }
 
     private record JobMetaData(string JobId, string Status, string ResumePath, string JobDescriptionPath);

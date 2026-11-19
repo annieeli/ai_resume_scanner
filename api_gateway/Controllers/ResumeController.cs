@@ -40,4 +40,17 @@ public class ResumeController : ControllerBase
 
         return Accepted(new { JobId = jobId });
     }
+
+    [HttpGet("{jobId:guid}")]
+    public async Task<IActionResult> GetJobStatus(string jobId, CancellationToken cancellationToken)
+    {
+
+        var status = await _resumeService.GetJobStatusAsync(jobId, cancellationToken);
+
+        if (status is null || status == JobStatus.Unknown)
+        {
+            return NotFound(new { JobId = jobId });
+        }
+        return Ok(new { JobId = jobId, Status = status.ToString() });
+    }
 }

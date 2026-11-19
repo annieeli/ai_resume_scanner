@@ -1,6 +1,7 @@
-# connects to rabbitmq and consumes from queue: resume_analysis
+#connects to rabbitmq and consumes from queue: resume_analysis
 from pathlib import Path
 from CompatibilityAnalyzer import analyze_compatibility
+from JobStatus import JobStatus
 import json
 import logging
 import os
@@ -63,45 +64,45 @@ def extract_resume_as_text(job_id, resume_path):
 def process_job(job_id):
     metadata_path = None
     try:
-        # retrieves job files
+        #retrieves job files
         job_id, job_dir, resume_path, description_path, metadata_path = get_job_files(job_id)
 
-        # reads the job description to ensure it's not empty
+        #reads the job description to ensure it's not empty
         job_description = description_path.read_text(encoding="utf-8")
         if not job_description.strip():
             raise ValueError("The job description is empty.")
 
-        # extracts text from the resume PDF
-        update_job_status(metadata_path, "ExtractingText")
+        #extracts text from the resume PDF
+        update_job_status(metadata_path, JobStatus.EXTRACTING_TEXT.value)
         resume_text = extract_resume_as_text(job_id, resume_path)
 
-        # starts running analysis
-        update_job_status(metadata_path, "Analyzing")
+        #starts running analysis
+        update_job_status(metadata_path, JobStatus.ANALYZING.value)
         result = analyze_compatibility(resume_text, job_description)
         
-        # saves the result to a temporary file and then renames it to ensure atomicity
+        #saves the result to a temporary file and then renames it to ensure atomicity
         result_path = job_dir / "result.json"
         temporary_result_path = job_dir / "result.json.tmp"
         temporary_result_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
         temporary_result_path.replace(result_path)
-        update_job_status(metadata_path, "Completed")
+        update_job_status(metadata_path, JobStatus.COMPLETED.value)
 
     except Exception:
         logging.exception("Failed to process job %s", job_id)
         if metadata_path is not None:
-            update_job_status(metadata_path, "Failed")
+            update_job_status(metadata_path, JobStatus.FAILED.value)
         raise
 
 def consume_resume_job():
 
-    # sets connection parameters
+    #sets connection parameters
     rabbitmq_host = os.getenv("RABBITMQ_HOST", "localhost")
     rabbitmq_port = int(os.getenv("RABBITMQ_PORT", 5672))
     rabbitmq_user = os.getenv("RABBITMQ_USERNAME", "guest")
     rabbitmq_password = os.getenv("RABBITMQ_PASSWORD", "guest")
     queue_name = os.getenv("RABBITMQ_QUEUE", "resume_analysis")
 
-    # connects to rabbitmq
+    #connects to rabbitmq
     credentials = pika.PlainCredentials(rabbitmq_user, rabbitmq_password)
     parameters = pika.ConnectionParameters(host=rabbitmq_host, port=rabbitmq_port, credentials=credentials)
 
@@ -110,7 +111,7 @@ def consume_resume_job():
             connection = pika.BlockingConnection(parameters)
             channel = connection.channel()
 
-            # declares the queue just in case
+            #declares the queue just in case
             channel.queue_declare(queue=queue_name, durable=True)
 
             def callback(ch, method, properties, body):

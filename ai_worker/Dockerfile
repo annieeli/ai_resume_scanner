@@ -7,6 +7,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements.txt
 
 COPY ResumeAnalyze.py .
+COPY JobStatus.py .
 COPY CompatibilityAnalyzer.py .
 COPY compatibility_instructions.txt .
 

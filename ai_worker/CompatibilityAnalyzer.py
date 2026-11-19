@@ -3,12 +3,9 @@ import math
 import os
 from pathlib import Path
 from typing import TypedDict
-
 from openai import OpenAI
 
-
 INSTRUCTIONS_PATH = Path(__file__).with_name("compatibility_instructions.txt")
-
 
 class CompatibilityAnalysis(TypedDict):
     score: float
